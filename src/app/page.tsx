@@ -1,10 +1,14 @@
+import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
     <div>
      <SignedOut>
-        <SignInButton />
+        <SignInButton>
+          <Button>Sign up</Button>
+        </SignInButton>
+
         <SignUpButton />
     </SignedOut>
     <SignedIn>
