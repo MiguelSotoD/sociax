@@ -1,22 +1,42 @@
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { HomeIcon, ArrowLeftIcon } from "lucide-react";
 
 export default function NotFound() {
-    return (
-        <div className="flex flex-col items-center justify-center h-screen text-center bg-gray-100 text-gray-800 dark:bg-black/10 dark:text-gray-200">
-            <h1 className="text-6xl font-bold mb-4">404</h1>
-            <h2 className="text-2xl font-semibold mb-4">Page Not Found</h2>
-            <p className="text-lg mb-6">
-                Sorry, we couldn't find the page you're looking for.
-            </p>
-            <Button>
-            <Link
-                href="/"
-            >
-                Return Home
-            </Link>
-            </Button>
-            
-        </div>
-    );
+  return (
+    <div className="min-h-[80vh] grid place-items-center px-4">
+      <Card className="w-full max-w-md">
+        <CardContent className="pt-6">
+          <div className="text-center space-y-6">
+            {/* LARGE 404 TEXT */}
+            <p className="text-8xl font-bold text-primary font-mono">404</p>
+
+            {/* MESSAGE */}
+            <div className="space-y-2">
+              <h1 className="text-2xl font-bold tracking-tight">User not found</h1>
+              <p className="text-muted-foreground">The user you're looking for doesn't exist.</p>
+            </div>
+
+            {/* ACTION BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button variant="default" asChild>
+                <Link href="/">
+                  <HomeIcon className="mr-2 size-4" />
+                  Back to Home
+                </Link>
+              </Button>
+
+              <Button variant="outline" asChild>
+                <Link href="/">
+                  <ArrowLeftIcon className="mr-2 size-4" />
+                  Home
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
 }
